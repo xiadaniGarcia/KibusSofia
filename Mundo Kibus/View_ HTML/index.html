@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
     <script src="script.js"></script>
-
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
+         <div class="range"style="height: 20px;width: 204px;position: fixed;left: 782px;top: 108px;">
+           <input type="range" name="rollover" min="1" max="100" value="50" onchange="range.value=value" id="rollover">
+           <output id="range">50</output>
+         </div>
+
+         <script>
+         $( "#rollover" )
+           .change(function () {
+             console.log($( "#rollover" ).val());
+           })
+           .change();
+         </script>
 </body>
 </html>
