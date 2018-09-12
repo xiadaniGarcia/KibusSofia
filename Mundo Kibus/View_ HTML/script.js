@@ -12,7 +12,7 @@ function inicialize(s) {
 
   for (var i=0;i<15;i++)
     for (var j=0;j<15;j++)
-      matrix [i,j]= s.rect(j*39, i*39, 38, 38, 0, 0).attr('fill','green');
+      matrix [i,j]= s.rect(j*39, i*39, 38, 38, 0, 0).attr('fill','white');
 }
 
 function createMap(porcentage){
@@ -27,7 +27,7 @@ function createMap(porcentage){
     matrixO[x,y] = 1;
     x = x*39;
     y = y*39;
-    var c = s.image("img/arbol2.png",x, y, 38, 38);
+    var c = s.image("imagenesChidas/amigo.png",x, y, 38, 38);
 
   }
 
