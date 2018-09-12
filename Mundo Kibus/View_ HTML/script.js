@@ -12,7 +12,7 @@ function inicialize(s) {
 
   for (var i=0;i<15;i++)
     for (var j=0;j<15;j++)
-      matrix [i,j]= s.rect(j*39, i*39, 38, 38, 0, 0).attr('fill','green');
+      matrix [i,j]= s.rect(j*39, i*39, 38, 38, 0, 0).attr('fill','white');
 
 }
 
@@ -85,31 +85,35 @@ function wait(ms)
   while(d2-d < ms);
 }
 
-function moveKibus(){
+function moveKibus(origin,destination,s){
   //inicialize(s);
   xi = origin[0]*39;
   yi = origin[1]*39;
   xf = destination[0]*39;
   yf = destination[1]*39;
   console.log("mover al kibus");
-  s.rect(xi, yi, 38, 38, 0, 0).attr('fill','green');
-  var c = s.image("img/Stitch2.png",xf, yf, 38, 38);
+  //s.rect(xi, yi, 38, 38, 0, 0).attr('fill','green');
+  var c = s.image("imagenesChidas/amigo.png",xf, yf, 38, 38);
 }
 function trajectory(s){
   actualX = bressenhamLine[0][0];
   actualY = bressenhamLine[0][1];
   actual = [actualX,actualY];
 
+  var c = s.image("imagenesChidas/amigo.png",actualX*39,actualY*39, 38, 38);
+
   for(var i = 0; i < bressenhamLine.length;i++){
     destinationX = bressenhamLine[i][0];
     destinationY = bressenhamLine[i][1];
     destination =[destinationX,destinationY];
-    //console.log(actual,destination);
-    wait(2000);
+  //  console.log(actual,destination);
+    var t = "t"+destinationX+","+destinationY;
+    //wait(2000);
     moveKibus(actual,destination,s);
+    //c.traslate(destinationX,destinationY);
+
+
     //actual = destination;
-
-
 
   }
 }
