@@ -14,13 +14,22 @@
            <input type="range" name="rollover" min="1" max="100" value="50" onchange="range.value=value" id="rollover">
            <output id="range">50</output>
          </div>
-
+         <button onclick="begin()">Empezar</button>
          <script>
+         s  = Snap(800, 600);
          $( "#rollover" )
            .change(function () {
+             inicialize(s);
              console.log($( "#rollover" ).val());
+             createMap($( "#rollover" ).val());
            })
            .change();
+
+          function begin(){
+            house =[12,10];
+            kibus =[2,5];
+            bressenham(house,kibus);
+          }
          </script>
 </body>
 </html>
