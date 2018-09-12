@@ -14,6 +14,7 @@
            <input type="range" name="rollover" min="1" max="100" value="50" onchange="range.value=value" id="rollover">
            <output id="range">50</output>
          </div>
+
          <button onclick="begin()">Empezar</button>
          <script>
          s  = Snap(800, 600);
@@ -21,14 +22,17 @@
            .change(function () {
              inicialize(s);
              console.log($( "#rollover" ).val());
-             createMap($( "#rollover" ).val());
+             //createMap($( "#rollover" ).val());
            })
            .change();
 
           function begin(){
-            house =[12,10];
-            kibus =[2,5];
-            bressenham(house,kibus);
+            house =[2,3];
+            kibus =[11,14];
+            bressenham(house,kibus,s);
+            var stitch = s.image("img/Stitch2.png",11*39, 14*39, 38, 38);
+            stitch.attr({id: 'stitch'});
+            moveKibus();
           }
          </script>
 </body>

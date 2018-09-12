@@ -4,7 +4,12 @@
 body {
     padding: 0px 0px;
 }
-
+#myAnimation {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    background-image: "img/Stitch2.png";
+}
 .range {
     display: table;
     position: relative;

@@ -13,6 +13,7 @@ function inicialize(s) {
   for (var i=0;i<15;i++)
     for (var j=0;j<15;j++)
       matrix [i,j]= s.rect(j*39, i*39, 38, 38, 0, 0).attr('fill','green');
+
 }
 
 function createMap(porcentage){
@@ -33,15 +34,11 @@ function createMap(porcentage){
 
 }
 
-function bressenham(house,kibus){
+function bressenham(house,kibus,s){
   pf = house;
   pi = kibus;
 
-  if (pi[0] > pf[0]) {
-    aux = pi;
-    pi = pf;
-    pf = aux;
-  }
+
   //bressenhamLine.push(pi);
   dx = parseInt(pf[0]) - parseInt(pi[0]);
   sx = (dx < 0) ? -1 : 1;
@@ -75,4 +72,46 @@ function bressenham(house,kibus){
   }
   bressenhamLine.push(pf);
   console.log(bressenhamLine);
+  //var c = s.image("img/Stitch2.png",11*39, 14*39, 38, 38);
+  //moveKibus(s);
+}
+
+function wait(ms)
+{
+  var d = new Date();
+  var d2 = null;
+  do { d2 = new Date(); }
+  while(d2-d < ms);
+}
+
+function moveKibus(){
+  //  inicialize(s);
+  //  xi = origin[0]*39;
+  //  yi = origin[1]*39;
+  //  xf = destination[0]*39;
+  //  yf = destination[1]*39;
+  //  console.log("mover al kibus");
+     //s.rect(xi, yi, 38, 38, 0, 0).attr('fill','green');
+    var elem = document.getElementById('stitch');
+    elem.setAttribute('transform','translate(30,100)');
+    wait(2000);
+    elem.setAttribute('transform','translate(50,100)');
+}
+function trajectory(s){
+  actualX = bressenhamLine[0][0];
+  actualY = bressenhamLine[0][1];
+  actual = [actualX,actualY];
+
+  for(var i = 0; i < bressenhamLine.length;i++){
+    destinationX = bressenhamLine[i][0];
+    destinationY = bressenhamLine[i][1];
+    destination =[destinationX,destinationY];
+    //console.log(actual,destination);
+    wait(2000);
+    moveKibus(actual,destination,s);
+    actual = destination;
+
+
+
+  }
 }
