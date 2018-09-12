@@ -28,7 +28,7 @@ function createMap(porcentage){
     matrixO[x,y] = 1;
     x = x*39;
     y = y*39;
-    var c = s.image("img/arbol2.png",x, y, 38, 38);
+    var c = s.image("imagenesChidas/amigo.png",x, y, 38, 38);
 
   }
 
@@ -74,6 +74,7 @@ function bressenham(house,kibus,s){
   console.log(bressenhamLine);
   //var c = s.image("img/Stitch2.png",11*39, 14*39, 38, 38);
   //moveKibus(s);
+  trajectory(s);
 }
 
 function wait(ms)
@@ -85,17 +86,14 @@ function wait(ms)
 }
 
 function moveKibus(){
-  //  inicialize(s);
-  //  xi = origin[0]*39;
-  //  yi = origin[1]*39;
-  //  xf = destination[0]*39;
-  //  yf = destination[1]*39;
-  //  console.log("mover al kibus");
-     //s.rect(xi, yi, 38, 38, 0, 0).attr('fill','green');
-    var elem = document.getElementById('stitch');
-    elem.setAttribute('transform','translate(30,100)');
-    wait(2000);
-    elem.setAttribute('transform','translate(50,100)');
+  //inicialize(s);
+  xi = origin[0]*39;
+  yi = origin[1]*39;
+  xf = destination[0]*39;
+  yf = destination[1]*39;
+  console.log("mover al kibus");
+  s.rect(xi, yi, 38, 38, 0, 0).attr('fill','green');
+  var c = s.image("img/Stitch2.png",xf, yf, 38, 38);
 }
 function trajectory(s){
   actualX = bressenhamLine[0][0];
@@ -109,7 +107,7 @@ function trajectory(s){
     //console.log(actual,destination);
     wait(2000);
     moveKibus(actual,destination,s);
-    actual = destination;
+    //actual = destination;
 
 
 
